@@ -12,11 +12,12 @@ class DataProvider extends Component {
 
     getIP = () => {
         axios.get(`https://api.ipify.org?format=json`).then(res => {
-            console.log(res.data)
             this.setState({
                 ip: res.data.ip
             })
-        })
+        }).catch(function (error) {
+            window.location.reload()
+        });
     }
 
     render() {
